@@ -45,13 +45,15 @@ public class BuildHierarchyTree {
 	 */
 	protected void buildHierarchyTree(Employee root) {
 		 Employee employee = root;
-		 List<Employee> subs = getSubsById(employee.getId());
-		 employee.setSubordinates(subs);
-		 if (subs.size() == 0) {
-			 return;
-		 }
-		 for (Employee em : subs) {
-	    	buildHierarchyTree(em);
+		 if(employee != null) {
+			 List<Employee> subs = getSubsById(employee.getId());
+			 employee.setSubordinates(subs);
+			 if (subs.size() == 0) {
+				 return;
+			 }
+			 for (Employee em : subs) {
+		    	buildHierarchyTree(em);
+			 }
 		 }
 	 }	 
 	 
@@ -79,13 +81,15 @@ public class BuildHierarchyTree {
 	 * @param level
 	 */
 	protected void printHierarchyTree(Employee root, int level) {
-		for (int i = 0; i < level; i++) 
-			System.out.print("\t");	 
-			System.out.println(root.getName());		 
-			List<Employee> subs = root.getSubordinates();
-			for (Employee em : subs) {
-				printHierarchyTree(em, level+1);
-			}
+		if(root != null) {
+			for (int i = 0; i < level; i++) 
+				System.out.print("\t");	 
+				System.out.println(root.getName());		 
+				List<Employee> subs = root.getSubordinates();
+				for (Employee em : subs) {
+					printHierarchyTree(em, level+1);
+				}
+		}
 	}
 	
 	
