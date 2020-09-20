@@ -17,10 +17,3 @@
 
 ## Result
 The result will print in the console
-
-Jamie
-	  Steve
-		    David
-	  Alan
-		    Alex
-		    Martin
